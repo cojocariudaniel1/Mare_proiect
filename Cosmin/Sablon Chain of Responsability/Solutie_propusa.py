@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class OrderApprover(ABC):
-    def init(self, next_approver: "OrderApprover" = None):
+    def __init__(self, next_approver: "OrderApprover" = None):
         self.next_approver = next_approver
 
     def set_next_approver(self, next_approver: "OrderApprover"):
@@ -35,7 +35,7 @@ class Administrator(OrderApprover):
 
 
 class Order:
-    def init(self, price: int):
+    def __init__(self, price: int):
         self.price = price
 
 
@@ -48,3 +48,6 @@ def main():
     a.approve_order(Order(50000))  # this will be approved by the ResponsabilGestionar
     a.approve_order(Order(200000))  # this will be approved by the SefProductie
     a.approve_order(Order(500000))  # this will be approved by the Administrator
+
+
+main()
